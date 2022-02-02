@@ -2,8 +2,8 @@ extends KinematicBody2D
 var direction = 1
 export var speed = 200
 var velocity = Vector2.ZERO
-export var gravity = 0
-export var jump = 500
+export var gravity = 400
+export var jump = 250
 var double_jump = false
 
 # Declare member variables here. Examples:
@@ -57,7 +57,7 @@ func get_input():
 		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = -jump
 			double_jump = true
-	
+			
 		
 		
 func _physics_process(delta):

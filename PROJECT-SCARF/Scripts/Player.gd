@@ -11,11 +11,11 @@ var double_jump = false
 var jumploop = false
 var attackstackl = 0
 var spawn_position
+var jumponce = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_position = position
-	
 	
 	
 func update_anim():
@@ -86,6 +86,7 @@ func _physics_process(delta):
 			
 			
 		if is_on_floor():
+			jumponce = true
 			if Input.is_action_just_pressed("ui_up"):
 				velocity.y = jump_speed
 				player_state = state.JUMP
@@ -95,8 +96,11 @@ func _physics_process(delta):
 		if velocity.y < 0 and isAttacking == false:
 			player_state = state.JUMP
 		elif velocity.y > 0 and isAttacking == false:
-			double_jump = true
 			player_state = state.FALL
+		if Input.is_action_just_pressed("ui_up") && jumponce == true:
+				velocity.y = jump_speed
+				player_state = state.JUMP
+				jumponce = false
 		if Input.is_action_just_pressed("ui_up") and double_jump == true:
 			jumploop = false
 			velocity.y = jump_speed

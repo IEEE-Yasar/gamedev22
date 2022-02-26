@@ -5,26 +5,20 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Platform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 509, 407 )
-
-[node name="Platform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 571, 407 )
-
-[node name="Platform3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 448, 407 )
-
 [node name="Platform4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 733, 406 )
+scale = Vector2( 20, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 504, 227 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="ControlInfo" type="RichTextLabel" parent="Player"]
-margin_left = -496.0
-margin_top = -283.0
-margin_right = -266.0
-margin_bottom = -174.0
+margin_left = -331.0
+margin_top = -189.0
+margin_right = -72.0
+margin_bottom = -65.0
+rect_scale = Vector2( 0.8, 0.8 )
 custom_colors/default_color = Color( 0, 1, 0.180392, 1 )
 text = "W = Jump (You have double jump)
 A = left

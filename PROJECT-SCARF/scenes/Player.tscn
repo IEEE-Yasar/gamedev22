@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SpriteSheets/Player/Fullmain.png" type="Texture" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fall"

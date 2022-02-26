@@ -18,4 +18,16 @@ position = Vector2( 448, 407 )
 position = Vector2( 733, 406 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 493, 338 )
+position = Vector2( 504, 227 )
+
+[node name="ControlInfo" type="RichTextLabel" parent="Player"]
+margin_left = -496.0
+margin_top = -283.0
+margin_right = -266.0
+margin_bottom = -174.0
+custom_colors/default_color = Color( 0, 1, 0.180392, 1 )
+text = "W = Jump (You have double jump)
+A = left
+D = right
+Mouse left button = Light Attack
+Mouse right button = Heavy Attack"

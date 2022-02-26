@@ -210,7 +210,6 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
-playback_speed = 2.5
 anims/Fall = SubResource( 2 )
 anims/HeavyAttack = SubResource( 3 )
 anims/Idle = SubResource( 4 )
@@ -224,7 +223,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 12
-frame = 58
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,75 +1,118 @@
 extends KinematicBody2D
-var direction = 1
-export var speed = 200
+export var speed = 250
+export var maxSpeed = 500
 var velocity = Vector2.ZERO
-export var gravity = 400
-export var jump = 250
+export var gravity = 300
+export var jump_speed = -250
+enum state {IDLE,WALK,JUMP,FALL,LATTACK,HATTACK}
+var isAttacking = false
+var player_state = state.IDLE
 var double_jump = false
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var jumploop = false
+var attackstackl = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	pass
 	
-func sprite_direction():
-	if direction == 1:
-		$Idle.flip_h = false
-		$Walk.flip_h = false
-	else:
-		$Idle.flip_h = true
-		$Walk.flip_h = true
 	
 	
-func get_input():
-	velocity.x = 0
-	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += speed
-		direction = 1
-		$AnimationPlayer.play("Walk")
-		
-		
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= speed
-		direction = -1
-		$AnimationPlayer.play("Walk")
-		
-		
-	if velocity.x == 0:
-		
-		$AnimationPlayer.play("Idle")
-		$Walk.hide()
-		$Idle.show()
-	
-	if velocity.x != 0:
-		
-		$AnimationPlayer.play("Walk")
-		$Idle.hide()
-		$Walk.show()
-	
-	if is_on_floor():
-		
-		if Input.is_action_just_pressed("ui_up"):
-			velocity.y = -jump
-			double_jump = true
+func update_anim():
+	match(player_state):
+		state.IDLE:
+			$AnimationPlayer.play("Idle")
+		state.WALK:
+			$AnimationPlayer.play("Walk")
+		state.JUMP:
+			if jumploop == false:
+				$AnimationPlayer.play("Jump")
+				yield($AnimationPlayer,"animation_finished")
+				jumploop = true
+		state.FALL:
+			$AnimationPlayer.play("Fall")
+			jumploop = false
+		state.LATTACK:
+			$AnimationPlayer.play("LightAttack")
+			yield($AnimationPlayer,"animation_finished")
+			isAttacking = false
+			if is_on_floor():
+				player_state = state.IDLE
+			elif not is_on_floor() and velocity.y < 0:
+				player_state = state.JUMP
+			elif not is_on_floor() and velocity.y > 0:
+				player_state = state.FALL
 			
-		
-		
+				
+		state.HATTACK:
+			$AnimationPlayer.play("HeavyAttack")
+			yield($AnimationPlayer,"animation_finished")
+			isAttacking = false
+			if is_on_floor():
+				player_state = state.IDLE
+			elif not is_on_floor() and velocity.y < 0:
+				player_state = state.JUMP
+			elif not is_on_floor() and velocity.y > 0:
+				player_state = state.FALL
+	
+	
+
 func _physics_process(delta):
-	get_input()
-	sprite_direction()
-	print(velocity.y)
+	var movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	if movement != 0:
+		velocity.x += movement * maxSpeed * delta
+		velocity.x = clamp(velocity.x,-speed,speed)
+		$Sprite.flip_h = movement < 0
+		
+	elif movement ==0:
+		velocity.x = 0
+		
+	if player_state !=state.LATTACK and player_state != state.HATTACK:
+		
+		if velocity.x ==0:
+			player_state = state.IDLE
+		
+		elif velocity.x !=0:
+			player_state = state.WALK
+			
+		if Input.is_action_just_pressed("light_attack"):
+			isAttacking = true
+			player_state = state.LATTACK
+			
+			
+		if Input.is_action_just_pressed("heavy_attack"):
+			isAttacking = true
+			player_state = state.HATTACK
+			
+			
+		if is_on_floor():
+			if Input.is_action_just_pressed("ui_up"):
+				velocity.y = jump_speed
+				player_state = state.JUMP
+				double_jump = true
 	
-	velocity.y += delta * gravity
+	if not is_on_floor():
+		if velocity.y < 0 and isAttacking == false:
+			player_state = state.JUMP
+		elif velocity.y > 0 and isAttacking == false:
+			player_state = state.FALL
+		if Input.is_action_just_pressed("ui_up") and double_jump == true:
+			jumploop = false
+			velocity.y = jump_speed
+			player_state = state.JUMP
+			double_jump = false
+		
+		
+		
+		
+		
+
+		
+	
+	
+	
+	
+	update_anim()
+	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity,Vector2.UP)
-
-	
-	
-
 	
 	

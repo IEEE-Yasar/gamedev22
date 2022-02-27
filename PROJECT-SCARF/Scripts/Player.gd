@@ -4,7 +4,6 @@ export var maxSpeed = 600
 var velocity = Vector2.ZERO
 export var gravity = 300
 export var jump_speed = -250
-export var dash_speed = 6000
 export var dash_duraction = 0.4
 onready var dash = $Dash
 enum state {IDLE,WALK,JUMP,FALL,LATTACK,HATTACK}

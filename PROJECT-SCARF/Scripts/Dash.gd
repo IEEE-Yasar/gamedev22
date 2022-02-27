@@ -3,7 +3,7 @@ extends Node2D
 onready var duraction_timer = $Timer
 
 var can_dash = true
-var dash_delay = 0.8
+export var dash_delay = 0.8
 
 var sprite
 

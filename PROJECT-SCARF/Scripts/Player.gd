@@ -1,10 +1,10 @@
 extends KinematicBody2D
-export var speed = 400
-export var maxSpeed = 600
+export var speed = 300
+export var maxSpeed = 500
 var velocity = Vector2.ZERO
 export var gravity = 300
 export var jump_speed = -250
-export var dash_duraction = 0.4
+export var dash_duraction = 0.2
 onready var dash = $Dash
 enum state {IDLE,WALK,JUMP,FALL,LATTACK,HATTACK}
 var isAttacking = false
@@ -63,7 +63,7 @@ func update_anim():
 func _physics_process(delta):
 	var movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if movement != 0:
-		velocity.x += movement * speed * delta * 1.5
+		velocity.x += movement * speed * delta * 4
 		$Sprite.flip_h = movement < 0
 		if not dash.is_dashing():
 			velocity.x = clamp(velocity.x,-maxSpeed,maxSpeed)
@@ -115,9 +115,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
 		dash.start_dash($Sprite, dash_duraction)
 		if movement !=0:
-			velocity.x = 1000 * direction
+			velocity.x = 2000 * direction
 		else:
-			velocity.x = 15000 * direction
+			velocity.x = 20000 * direction
 		
 	if position.y >= 900:			#If you fall you will return to first position
 		position = spawn_position

@@ -20,6 +20,7 @@ margin_bottom = -66.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_colors/default_color = Color( 0, 1, 0.180392, 1 )
 text = "W = Jump (You have double jump)
+Space Bar = Dash
 A = left
 D = right
 Mouse left button = Light Attack

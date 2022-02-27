@@ -167,7 +167,7 @@ func _physics_process(delta):
 		$Sword/HeavyAttack.position.x = -4.5
 		$Sword/HeavyAttack.position.y = 12.5
 		$Sword/HeavyAttack.rotation_degrees = 0
-		$Sword/HeavyAttack2.position.x = 36
+		$Sword/HeavyAttack2.position.x = 30
 		$Sword/HeavyAttack2.position.y = 1
 		$Sword/HeavyAttack2.rotation_degrees = 0
 
@@ -177,7 +177,7 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
-	print(attack_damage)
+	print("attack damage: ", attack_damage)
 	Global.player_attack = attack_damage
 	update_anim()
 	velocity.y += gravity * delta

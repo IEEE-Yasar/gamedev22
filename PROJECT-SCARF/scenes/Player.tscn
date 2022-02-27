@@ -127,7 +127,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -390,7 +390,7 @@ position = Vector2( -221, 8 )
 rotation = -1.5708
 scale = Vector2( 6, 14 )
 frames = SubResource( 9 )
-frame = 54
+frame = 27
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -428,6 +428,6 @@ disabled = true
 
 [node name="HeavyAttack2" type="CollisionShape2D" parent="Sword"]
 modulate = Color( 0.501961, 0, 0, 1 )
-position = Vector2( 36, 1 )
+position = Vector2( 30, 1 )
 shape = SubResource( 12 )
 disabled = true

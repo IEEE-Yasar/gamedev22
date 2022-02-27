@@ -1,11 +1,10 @@
 extends Node2D
 
 onready var duraction_timer = $Timer
-
 var can_dash = true
 export var dash_delay = 0.8
-
 var sprite
+
 
 func start_dash(sprite,duraction):
 	self.sprite = sprite

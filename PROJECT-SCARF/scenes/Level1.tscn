@@ -11,6 +11,7 @@ scale = Vector2( 20, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 1.5, 1.5 )
+jump_speed = -300
 
 [node name="ControlInfo" type="RichTextLabel" parent="Player"]
 margin_left = -326.0

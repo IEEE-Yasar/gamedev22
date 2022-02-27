@@ -11,10 +11,12 @@ var isAttacking = false
 var player_state = state.IDLE
 var double_jump = false
 var jumploop = false
+var airdash = true
 var attackstackl = 0
 var spawn_position
 var jumponce = true
 var direction
+var attack_damage = 25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -91,6 +93,7 @@ func _physics_process(delta):
 			
 			
 		if is_on_floor():
+			airdash = true
 			jumponce = true
 			if Input.is_action_just_pressed("ui_up"):
 				velocity.y = jump_speed
@@ -108,31 +111,60 @@ func _physics_process(delta):
 				jumponce = false
 		if Input.is_action_just_pressed("ui_up") and double_jump == true:
 			jumploop = false
-			velocity.y = jump_speed
+			velocity.y = jump_speed -100
 			player_state = state.JUMP
 			double_jump = false
 	
 	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
-		dash.start_dash($Sprite, dash_duraction)
-		if movement !=0:
-			velocity.x = 2000 * direction
-		else:
-			velocity.x = 20000 * direction
+		if is_on_floor():
+			dash.start_dash($Sprite, dash_duraction)
+			if movement !=0:
+				velocity.x = 2000 * direction
+			else:
+				velocity.x = 20000 * direction
+		elif not is_on_floor() and airdash == true:
+			dash.start_dash($Sprite, dash_duraction)
+			if movement !=0:
+				velocity.x = 2000 * direction
+			else:
+				velocity.x = 20000 * direction
+			airdash = false
+			
+			
+			
 		
 	if position.y >= 900:			#If you fall you will return to first position
 		position = spawn_position
 		
-	if $Sprite.flip_h == true:
+	if $Sprite.flip_h == true:			#Direction
 		direction = -1
 		$DashSprite.position.x = 225
 		$DashSprite.position.y = 3
 		$DashSprite.rotation_degrees = 90
+		$Sword/LightAttack.position.x = -30
+		$Sword/LightAttack.position.y = 2.75
+		$Sword/LightAttack.rotation_degrees = 0
+		$Sword/HeavyAttack.position.x = 3.25
+		$Sword/HeavyAttack.position.y = 12.5
+		$Sword/HeavyAttack.rotation_degrees = 0
+		$Sword/HeavyAttack2.position.x = -29
+		$Sword/HeavyAttack2.position.y = 0
+		$Sword/HeavyAttack2.rotation_degrees = 0
 		
 	else:
+		direction = 1
 		$DashSprite.position.x = -221
 		$DashSprite.position.y = 8
 		$DashSprite.rotation_degrees = -90
-		direction = 1	
+		$Sword/LightAttack.position.x = 25.5
+		$Sword/LightAttack.position.y = 5.5
+		$Sword/LightAttack.rotation_degrees = 0
+		$Sword/HeavyAttack.position.x = -4.5
+		$Sword/HeavyAttack.position.y = 12.5
+		$Sword/HeavyAttack.rotation_degrees = 0
+		$Sword/HeavyAttack2.position.x = 33.5
+		$Sword/HeavyAttack2.position.y = -1
+		$Sword/HeavyAttack2.rotation_degrees = 0
 
 
 	if dash.is_dashing():
@@ -141,7 +173,7 @@ func _physics_process(delta):
 		$DashSprite.hide()
 
 
-	print(velocity.x)
+	
 	update_anim()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity,Vector2.UP)

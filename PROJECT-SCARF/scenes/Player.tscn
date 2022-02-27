@@ -290,11 +290,12 @@ anims/Walk = SubResource( 8 )
 
 [node name="DashSprite" type="AnimatedSprite" parent="."]
 visible = false
+modulate = Color( 0.0281982, 0.286363, 0.328125, 1 )
 position = Vector2( -221, 8 )
 rotation = -1.5708
 scale = Vector2( 6, 14 )
 frames = SubResource( 9 )
-frame = 16
+frame = 24
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]

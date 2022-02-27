@@ -1,9 +1,12 @@
 extends KinematicBody2D
-export var speed = 250
-export var maxSpeed = 500
+export var speed = 400
+export var maxSpeed = 600
 var velocity = Vector2.ZERO
 export var gravity = 300
 export var jump_speed = -250
+export var dash_speed = 6000
+export var dash_duraction = 0.4
+onready var dash = $Dash
 enum state {IDLE,WALK,JUMP,FALL,LATTACK,HATTACK}
 var isAttacking = false
 var player_state = state.IDLE
@@ -12,6 +15,7 @@ var jumploop = false
 var attackstackl = 0
 var spawn_position
 var jumponce = true
+var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,9 +64,11 @@ func update_anim():
 func _physics_process(delta):
 	var movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if movement != 0:
-		velocity.x += movement * maxSpeed * delta
-		velocity.x = clamp(velocity.x,-speed,speed)
+		velocity.x += movement * speed * delta * 1.5
 		$Sprite.flip_h = movement < 0
+		if not dash.is_dashing():
+			velocity.x = clamp(velocity.x,-maxSpeed,maxSpeed)
+			
 		
 	elif movement ==0:
 		velocity.x = 0
@@ -106,14 +112,37 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 			player_state = state.JUMP
 			double_jump = false
-		
-		
-		
+	
+	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
+		dash.start_dash($Sprite, dash_duraction)
+		if movement !=0:
+			velocity.x = 1000 * direction
+		else:
+			velocity.x = 15000 * direction
 		
 	if position.y >= 900:			#If you fall you will return to first position
-		position = spawn_position	
+		position = spawn_position
+		
+	if $Sprite.flip_h == true:
+		direction = -1
+		$DashSprite.position.x = 225
+		$DashSprite.position.y = 3
+		$DashSprite.rotation_degrees = 90
+		
+	else:
+		$DashSprite.position.x = -221
+		$DashSprite.position.y = 8
+		$DashSprite.rotation_degrees = -90
+		direction = 1	
 
-	
+
+	if dash.is_dashing():
+		$DashSprite.show()
+	else:
+		$DashSprite.hide()
+
+
+	print(velocity.x)
 	update_anim()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity,Vector2.UP)

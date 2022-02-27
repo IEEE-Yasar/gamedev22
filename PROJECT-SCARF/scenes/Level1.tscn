@@ -10,14 +10,13 @@ position = Vector2( 733, 406 )
 scale = Vector2( 20, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 504, 227 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="ControlInfo" type="RichTextLabel" parent="Player"]
-margin_left = -331.0
-margin_top = -189.0
-margin_right = -72.0
-margin_bottom = -65.0
+margin_left = -326.0
+margin_top = -190.0
+margin_right = -67.0
+margin_bottom = -66.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_colors/default_color = Color( 0, 1, 0.180392, 1 )
 text = "W = Jump (You have double jump)

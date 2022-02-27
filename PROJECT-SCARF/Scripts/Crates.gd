@@ -2,7 +2,6 @@ extends Area2D
 
 #var coinScene = preload("res://Scenes/Coin.tscn")
 var health = 50
-
 func _on_Crates_area_entered(area):
 	
 	if area.is_in_group("Sword"):
@@ -23,8 +22,11 @@ func onDestroyed():
 	#get_tree().get_root().add_child(coin)
 	pass
 	
-func _process(delta):
-	print("health: ",health)
+
+	
+
+	
+	
 
 	
 	

@@ -9,6 +9,9 @@
 [node name="Crates" parent="." instance=ExtResource( 3 )]
 position = Vector2( 834, 332 )
 
+[node name="Crates2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 350, 332 )
+
 [node name="Platform4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 733, 406 )
 scale = Vector2( 20, 1 )

@@ -1,22 +1,23 @@
 extends KinematicBody2D
+var velocity = Vector2.ZERO
 export var speed = 300
 export var maxSpeed = 500
-var velocity = Vector2.ZERO
 export var gravity = 300
 export var jump_speed = -250
 export var dash_duraction = 0.2
+export var health = 100
+var attack_damage = 25
 onready var dash = $Dash
 enum state {IDLE,WALK,JUMP,FALL,LATTACK,HATTACK}
-var isAttacking = false
 var player_state = state.IDLE
+var isAttacking = false
 var double_jump = false
 var jumploop = false
 var airdash = true
-var attackstackl = 0
-var spawn_position
 var jumponce = true
 var direction
-var attack_damage = 10
+var spawn_position
+
 
 
 # Called when the node enters the scene tree for the first time.

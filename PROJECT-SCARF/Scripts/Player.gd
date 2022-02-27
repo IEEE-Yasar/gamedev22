@@ -16,7 +16,8 @@ var attackstackl = 0
 var spawn_position
 var jumponce = true
 var direction
-var attack_damage = 25
+var attack_damage = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,6 +84,7 @@ func _physics_process(delta):
 			player_state = state.WALK
 			
 		if Input.is_action_just_pressed("light_attack"):
+			attack_damage = 25
 			isAttacking = true
 			player_state = state.LATTACK
 			
@@ -90,6 +92,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("heavy_attack"):
 			isAttacking = true
 			player_state = state.HATTACK
+			attack_damage = 20
+			yield(get_tree().create_timer(0.5),"timeout")
+			attack_damage = 30
 			
 			
 		if is_on_floor():
@@ -162,8 +167,8 @@ func _physics_process(delta):
 		$Sword/HeavyAttack.position.x = -4.5
 		$Sword/HeavyAttack.position.y = 12.5
 		$Sword/HeavyAttack.rotation_degrees = 0
-		$Sword/HeavyAttack2.position.x = 33.5
-		$Sword/HeavyAttack2.position.y = -1
+		$Sword/HeavyAttack2.position.x = 36
+		$Sword/HeavyAttack2.position.y = 1
 		$Sword/HeavyAttack2.rotation_degrees = 0
 
 
@@ -172,8 +177,8 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
-
-	
+	print(attack_damage)
+	Global.player_attack = attack_damage
 	update_anim()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity,Vector2.UP)

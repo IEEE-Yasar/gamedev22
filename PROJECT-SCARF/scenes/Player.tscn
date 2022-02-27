@@ -3,66 +3,66 @@
 [ext_resource path="res://SpriteSheets/Player/Fullmain.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Dash.tscn" type="PackedScene" id=3]
-[ext_resource path="res://DashEffect/3.png" type="Texture" id=4]
-[ext_resource path="res://DashEffect/4.png" type="Texture" id=5]
-[ext_resource path="res://DashEffect/1.png" type="Texture" id=6]
-[ext_resource path="res://DashEffect/2.png" type="Texture" id=7]
-[ext_resource path="res://DashEffect/32.png" type="Texture" id=8]
-[ext_resource path="res://DashEffect/33.png" type="Texture" id=9]
-[ext_resource path="res://DashEffect/29.png" type="Texture" id=10]
-[ext_resource path="res://DashEffect/30.png" type="Texture" id=11]
-[ext_resource path="res://DashEffect/27.png" type="Texture" id=12]
-[ext_resource path="res://DashEffect/31.png" type="Texture" id=13]
-[ext_resource path="res://DashEffect/34.png" type="Texture" id=14]
-[ext_resource path="res://DashEffect/28.png" type="Texture" id=15]
-[ext_resource path="res://DashEffect/10.png" type="Texture" id=16]
-[ext_resource path="res://DashEffect/26.png" type="Texture" id=17]
-[ext_resource path="res://DashEffect/20.png" type="Texture" id=18]
-[ext_resource path="res://DashEffect/21.png" type="Texture" id=19]
-[ext_resource path="res://DashEffect/19.png" type="Texture" id=20]
-[ext_resource path="res://DashEffect/25.png" type="Texture" id=21]
-[ext_resource path="res://DashEffect/13.png" type="Texture" id=22]
-[ext_resource path="res://DashEffect/18.png" type="Texture" id=23]
-[ext_resource path="res://DashEffect/12.png" type="Texture" id=24]
-[ext_resource path="res://DashEffect/22.png" type="Texture" id=25]
-[ext_resource path="res://DashEffect/11.png" type="Texture" id=26]
-[ext_resource path="res://DashEffect/15.png" type="Texture" id=27]
-[ext_resource path="res://DashEffect/16.png" type="Texture" id=28]
-[ext_resource path="res://DashEffect/17.png" type="Texture" id=29]
-[ext_resource path="res://DashEffect/14.png" type="Texture" id=30]
-[ext_resource path="res://DashEffect/23.png" type="Texture" id=31]
-[ext_resource path="res://DashEffect/24.png" type="Texture" id=32]
-[ext_resource path="res://DashEffect/60.png" type="Texture" id=33]
-[ext_resource path="res://DashEffect/45.png" type="Texture" id=34]
-[ext_resource path="res://DashEffect/46.png" type="Texture" id=35]
-[ext_resource path="res://DashEffect/49.png" type="Texture" id=36]
-[ext_resource path="res://DashEffect/43.png" type="Texture" id=37]
-[ext_resource path="res://DashEffect/51.png" type="Texture" id=38]
-[ext_resource path="res://DashEffect/55.png" type="Texture" id=39]
-[ext_resource path="res://DashEffect/56.png" type="Texture" id=40]
-[ext_resource path="res://DashEffect/57.png" type="Texture" id=41]
-[ext_resource path="res://DashEffect/58.png" type="Texture" id=42]
-[ext_resource path="res://DashEffect/59.png" type="Texture" id=43]
-[ext_resource path="res://DashEffect/53.png" type="Texture" id=44]
-[ext_resource path="res://DashEffect/52.png" type="Texture" id=45]
-[ext_resource path="res://DashEffect/44.png" type="Texture" id=46]
-[ext_resource path="res://DashEffect/48.png" type="Texture" id=47]
-[ext_resource path="res://DashEffect/47.png" type="Texture" id=48]
-[ext_resource path="res://DashEffect/50.png" type="Texture" id=49]
-[ext_resource path="res://DashEffect/54.png" type="Texture" id=50]
-[ext_resource path="res://DashEffect/5.png" type="Texture" id=51]
-[ext_resource path="res://DashEffect/6.png" type="Texture" id=52]
-[ext_resource path="res://DashEffect/7.png" type="Texture" id=53]
-[ext_resource path="res://DashEffect/8.png" type="Texture" id=54]
-[ext_resource path="res://DashEffect/9.png" type="Texture" id=55]
-[ext_resource path="res://DashEffect/40.png" type="Texture" id=56]
-[ext_resource path="res://DashEffect/42.png" type="Texture" id=57]
-[ext_resource path="res://DashEffect/37.png" type="Texture" id=58]
-[ext_resource path="res://DashEffect/35.png" type="Texture" id=59]
-[ext_resource path="res://DashEffect/36.png" type="Texture" id=60]
-[ext_resource path="res://DashEffect/38.png" type="Texture" id=61]
-[ext_resource path="res://DashEffect/39.png" type="Texture" id=62]
-[ext_resource path="res://DashEffect/41.png" type="Texture" id=63]
+[ext_resource path="res://Effects/DashEffect/3.png" type="Texture" id=4]
+[ext_resource path="res://Effects/DashEffect/4.png" type="Texture" id=5]
+[ext_resource path="res://Effects/DashEffect/1.png" type="Texture" id=6]
+[ext_resource path="res://Effects/DashEffect/2.png" type="Texture" id=7]
+[ext_resource path="res://Effects/DashEffect/32.png" type="Texture" id=8]
+[ext_resource path="res://Effects/DashEffect/33.png" type="Texture" id=9]
+[ext_resource path="res://Effects/DashEffect/29.png" type="Texture" id=10]
+[ext_resource path="res://Effects/DashEffect/30.png" type="Texture" id=11]
+[ext_resource path="res://Effects/DashEffect/27.png" type="Texture" id=12]
+[ext_resource path="res://Effects/DashEffect/31.png" type="Texture" id=13]
+[ext_resource path="res://Effects/DashEffect/34.png" type="Texture" id=14]
+[ext_resource path="res://Effects/DashEffect/28.png" type="Texture" id=15]
+[ext_resource path="res://Effects/DashEffect/10.png" type="Texture" id=16]
+[ext_resource path="res://Effects/DashEffect/26.png" type="Texture" id=17]
+[ext_resource path="res://Effects/DashEffect/20.png" type="Texture" id=18]
+[ext_resource path="res://Effects/DashEffect/21.png" type="Texture" id=19]
+[ext_resource path="res://Effects/DashEffect/19.png" type="Texture" id=20]
+[ext_resource path="res://Effects/DashEffect/25.png" type="Texture" id=21]
+[ext_resource path="res://Effects/DashEffect/13.png" type="Texture" id=22]
+[ext_resource path="res://Effects/DashEffect/18.png" type="Texture" id=23]
+[ext_resource path="res://Effects/DashEffect/12.png" type="Texture" id=24]
+[ext_resource path="res://Effects/DashEffect/22.png" type="Texture" id=25]
+[ext_resource path="res://Effects/DashEffect/11.png" type="Texture" id=26]
+[ext_resource path="res://Effects/DashEffect/15.png" type="Texture" id=27]
+[ext_resource path="res://Effects/DashEffect/16.png" type="Texture" id=28]
+[ext_resource path="res://Effects/DashEffect/17.png" type="Texture" id=29]
+[ext_resource path="res://Effects/DashEffect/14.png" type="Texture" id=30]
+[ext_resource path="res://Effects/DashEffect/23.png" type="Texture" id=31]
+[ext_resource path="res://Effects/DashEffect/24.png" type="Texture" id=32]
+[ext_resource path="res://Effects/DashEffect/60.png" type="Texture" id=33]
+[ext_resource path="res://Effects/DashEffect/45.png" type="Texture" id=34]
+[ext_resource path="res://Effects/DashEffect/46.png" type="Texture" id=35]
+[ext_resource path="res://Effects/DashEffect/49.png" type="Texture" id=36]
+[ext_resource path="res://Effects/DashEffect/43.png" type="Texture" id=37]
+[ext_resource path="res://Effects/DashEffect/51.png" type="Texture" id=38]
+[ext_resource path="res://Effects/DashEffect/55.png" type="Texture" id=39]
+[ext_resource path="res://Effects/DashEffect/56.png" type="Texture" id=40]
+[ext_resource path="res://Effects/DashEffect/57.png" type="Texture" id=41]
+[ext_resource path="res://Effects/DashEffect/58.png" type="Texture" id=42]
+[ext_resource path="res://Effects/DashEffect/59.png" type="Texture" id=43]
+[ext_resource path="res://Effects/DashEffect/53.png" type="Texture" id=44]
+[ext_resource path="res://Effects/DashEffect/52.png" type="Texture" id=45]
+[ext_resource path="res://Effects/DashEffect/44.png" type="Texture" id=46]
+[ext_resource path="res://Effects/DashEffect/48.png" type="Texture" id=47]
+[ext_resource path="res://Effects/DashEffect/47.png" type="Texture" id=48]
+[ext_resource path="res://Effects/DashEffect/50.png" type="Texture" id=49]
+[ext_resource path="res://Effects/DashEffect/54.png" type="Texture" id=50]
+[ext_resource path="res://Effects/DashEffect/5.png" type="Texture" id=51]
+[ext_resource path="res://Effects/DashEffect/6.png" type="Texture" id=52]
+[ext_resource path="res://Effects/DashEffect/7.png" type="Texture" id=53]
+[ext_resource path="res://Effects/DashEffect/8.png" type="Texture" id=54]
+[ext_resource path="res://Effects/DashEffect/9.png" type="Texture" id=55]
+[ext_resource path="res://Effects/DashEffect/40.png" type="Texture" id=56]
+[ext_resource path="res://Effects/DashEffect/42.png" type="Texture" id=57]
+[ext_resource path="res://Effects/DashEffect/37.png" type="Texture" id=58]
+[ext_resource path="res://Effects/DashEffect/35.png" type="Texture" id=59]
+[ext_resource path="res://Effects/DashEffect/36.png" type="Texture" id=60]
+[ext_resource path="res://Effects/DashEffect/38.png" type="Texture" id=61]
+[ext_resource path="res://Effects/DashEffect/39.png" type="Texture" id=62]
+[ext_resource path="res://Effects/DashEffect/41.png" type="Texture" id=63]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fall"
@@ -364,7 +364,7 @@ extents = Vector2( 20.5, 31.75 )
 extents = Vector2( 47.25, 21.5 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 14.5, 35 )
+extents = Vector2( 20, 35 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 499, 281 )
@@ -390,13 +390,12 @@ position = Vector2( -221, 8 )
 rotation = -1.5708
 scale = Vector2( 6, 14 )
 frames = SubResource( 9 )
-frame = 36
+frame = 54
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
-flip_h = true
 hframes = 10
 vframes = 12
 frame = 40
@@ -412,6 +411,8 @@ current = true
 [node name="Dash" parent="." instance=ExtResource( 3 )]
 
 [node name="Sword" type="Area2D" parent="." groups=["Sword"]]
+collision_layer = 4
+collision_mask = 8
 
 [node name="LightAttack" type="CollisionShape2D" parent="Sword"]
 modulate = Color( 0.0313726, 1, 0, 1 )
@@ -427,6 +428,6 @@ disabled = true
 
 [node name="HeavyAttack2" type="CollisionShape2D" parent="Sword"]
 modulate = Color( 0.501961, 0, 0, 1 )
-position = Vector2( -29, 0 )
+position = Vector2( 36, 1 )
 shape = SubResource( 12 )
 disabled = true

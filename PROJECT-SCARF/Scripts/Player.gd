@@ -98,7 +98,6 @@ func _physics_process(delta):
 			
 			
 		if is_on_floor():
-			$GlideSprite.hide()
 			gravity = 500
 			airdash = true
 			jumponce = true
@@ -113,19 +112,17 @@ func _physics_process(delta):
 		elif velocity.y > 0 and isAttacking == false:
 			player_state = state.FALL
 		if Input.is_action_just_pressed("ui_up") && jumponce == true:
-				velocity.y = jump_speed
-				player_state = state.JUMP
-				jumponce = false
+			velocity.y = jump_speed
+			player_state = state.JUMP
+			jumponce = false
 		if Input.is_action_just_pressed("ui_up") and double_jump == true:
 			jumploop = false
 			velocity.y = jump_speed -100
 			player_state = state.JUMP
 			double_jump = false
 		if Input.is_action_pressed("ui_shift") && player_state == state.FALL: #Glide
-			$GlideSprite.show()
 			gravity = 150
 		if Input.is_action_just_released("ui_shift"):
-			$GlideSprite.hide()
 			gravity = 500
 	
 	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
@@ -185,6 +182,12 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
+	if gravity ==500 && !dash.is_dashing():
+		$GlideSprite.hide()
+	elif gravity ==150:
+		$GlideSprite.show()
+	if dash.is_dashing():
+		$GlideSprite.hide()
 	print(gravity)
 	Global.player_attack = attack_damage
 	update_anim()

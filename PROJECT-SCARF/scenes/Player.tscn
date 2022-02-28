@@ -390,7 +390,7 @@ position = Vector2( -221, 8 )
 rotation = -1.5708
 scale = Vector2( 6, 14 )
 frames = SubResource( 9 )
-frame = 27
+frame = 9
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]

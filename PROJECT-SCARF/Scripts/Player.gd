@@ -34,8 +34,10 @@ func update_anim():
 		state.JUMP:
 			if jumploop == false:
 				$AnimationPlayer.play("Jump")
+				$GlideSprite.hide()
 				yield($AnimationPlayer,"animation_finished")
 				jumploop = true
+				gravity = 500
 		state.FALL:
 			$AnimationPlayer.play("Fall")
 			jumploop = false

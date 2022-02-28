@@ -31,5 +31,6 @@ text = "W = Jump (You have double jump)
 Space Bar = Dash
 A = left
 D = right
+Shift = Glide (only falling time)
 Mouse left button = Light Attack
 Mouse right button = Heavy Attack"

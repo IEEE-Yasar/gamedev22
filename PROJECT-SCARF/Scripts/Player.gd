@@ -2,7 +2,7 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 export var speed = 300
 export var maxSpeed = 500
-export var gravity = 300
+export var gravity = 500
 export var jump_speed = -250
 export var dash_duraction = 0.2
 export var health = 100
@@ -49,7 +49,6 @@ func update_anim():
 				player_state = state.JUMP
 			elif not is_on_floor() and velocity.y > 0:
 				player_state = state.FALL
-			
 				
 		state.HATTACK:
 			$AnimationPlayer.play("HeavyAttack")
@@ -99,6 +98,7 @@ func _physics_process(delta):
 			
 			
 		if is_on_floor():
+			gravity = 500
 			airdash = true
 			jumponce = true
 			if Input.is_action_just_pressed("ui_up"):
@@ -120,6 +120,10 @@ func _physics_process(delta):
 			velocity.y = jump_speed -100
 			player_state = state.JUMP
 			double_jump = false
+		if Input.is_action_pressed("ui_shift") && player_state == state.FALL: #Glide
+			gravity = 150
+		if Input.is_action_just_released("ui_shift"):
+			gravity = 500
 	
 	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
 		if is_on_floor():
@@ -178,7 +182,7 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
-	print("attack damage: ", attack_damage)
+	print(gravity)
 	Global.player_attack = attack_damage
 	update_anim()
 	velocity.y += gravity * delta

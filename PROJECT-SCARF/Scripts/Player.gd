@@ -184,13 +184,13 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
-	if gravy ==500 && !dash.is_dashing():
+	if gravy ==gravity && !dash.is_dashing():
 		$GlideSprite.hide()
 	elif gravy ==150:
 		$GlideSprite.show()
 	if dash.is_dashing():
 		$GlideSprite.hide()
-	print(gravy)
+	print("Current Gravity: ",gravy)
 	Global.player_attack = attack_damage
 	update_anim()
 	velocity.y += gravy * delta

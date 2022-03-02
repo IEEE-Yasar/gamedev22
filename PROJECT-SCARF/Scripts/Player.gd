@@ -17,7 +17,7 @@ var airdash = true
 var jumponce = true
 var direction
 var spawn_position
-
+var gravy = gravity
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +37,7 @@ func update_anim():
 				$GlideSprite.hide()
 				yield($AnimationPlayer,"animation_finished")
 				jumploop = true
-				gravity = 500
+				gravy = gravity
 		state.FALL:
 			$AnimationPlayer.play("Fall")
 			jumploop = false
@@ -100,7 +100,7 @@ func _physics_process(delta):
 			
 			
 		if is_on_floor():
-			gravity = 500
+			gravy = gravity
 			airdash = true
 			jumponce = true
 			if Input.is_action_just_pressed("ui_up"):
@@ -123,9 +123,9 @@ func _physics_process(delta):
 			player_state = state.JUMP
 			double_jump = false
 		if Input.is_action_pressed("ui_shift") && player_state == state.FALL: #Glide
-			gravity = 150
+			gravy = 150
 		if Input.is_action_just_released("ui_shift"):
-			gravity = 500
+			gravy = gravity
 	
 	if Input.is_action_just_pressed("space") && dash.can_dash ==true: #Dash
 		if is_on_floor():
@@ -184,16 +184,16 @@ func _physics_process(delta):
 	else:
 		$DashSprite.hide()
 
-	if gravity ==500 && !dash.is_dashing():
+	if gravy ==500 && !dash.is_dashing():
 		$GlideSprite.hide()
-	elif gravity ==150:
+	elif gravy ==150:
 		$GlideSprite.show()
 	if dash.is_dashing():
 		$GlideSprite.hide()
-	print(gravity)
+	print(gravy)
 	Global.player_attack = attack_damage
 	update_anim()
-	velocity.y += gravity * delta
+	velocity.y += gravy * delta
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	

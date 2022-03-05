@@ -411,7 +411,7 @@ position = Vector2( -221, 8 )
 rotation = -1.5708
 scale = Vector2( 6, 14 )
 frames = SubResource( 9 )
-frame = 18
+frame = 12
 playing = true
 
 [node name="GlideSprite" type="AnimatedSprite" parent="."]
@@ -420,6 +420,7 @@ position = Vector2( 1, -26 )
 rotation = 1.5708
 scale = Vector2( 4, 9 )
 frames = SubResource( 13 )
+frame = 6
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]

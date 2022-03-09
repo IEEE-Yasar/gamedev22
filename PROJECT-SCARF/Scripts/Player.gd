@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 var velocity = Vector2.ZERO
 export var speed = 300
 export var maxSpeed = 500
@@ -22,6 +23,7 @@ var gravy = gravity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.player = self
 	spawn_position = position
 	
 	
@@ -191,7 +193,6 @@ func _physics_process(delta):
 	if dash.is_dashing():
 		$GlideSprite.hide()
 	print("Current Gravity: ",gravy)
-	Global.player_attack = attack_damage
 	update_anim()
 	velocity.y += gravy * delta
 	velocity = move_and_slide(velocity,Vector2.UP)

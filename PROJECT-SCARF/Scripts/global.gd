@@ -1,3 +1,3 @@
 extends Node
 
-var player_attack
+var player : Player

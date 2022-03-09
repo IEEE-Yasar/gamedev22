@@ -5,7 +5,7 @@ var health = 50
 func _on_Crates_area_entered(area):
 	
 	if area.is_in_group("Sword"):
-		health -= Global.player_attack
+		health -= Global.player.attack_damage
 		$anim.play("Slashed")
 		yield(get_node("anim"), "animation_finished")
 		$anim.play("Active")
